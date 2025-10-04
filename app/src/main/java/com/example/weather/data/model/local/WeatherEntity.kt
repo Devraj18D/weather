@@ -17,7 +17,7 @@ data class WeatherEntity(
     val airQuality: Int? = null,
     val sunrise: String? = null,
     val sunset: String? = null,
-    val lastUpdated: Long, // timestamp
-    val timezone: String // from API location.tz_id
+    val lastUpdated: Long,
+    val timezone: String
 
 )

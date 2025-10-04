@@ -12,17 +12,10 @@ class WeatherRepository(
     private val dao: WeatherDao
 ) {
 
-    // ✅ Current weather fetch (API + fallback to DB)
     suspend fun getWeather(city: String, apiKey: String): WeatherEntity? {
         return withContext(Dispatchers.IO) {
             try {
                 val response: WeatherResponse = api.getCurrentWeather(apiKey, city)
-
-                // ✅ Average air quality calculation
-//                val aq = response.current.air_quality
-//                val airQualityAvg = if (aq != null) {
-//                    listOfNotNull(aq.co, aq.pm2_5, aq.pm10).average().toFloat()
-//                } else null
 
                 val aq = response.current.air_quality
                 val airQualityAvg = aq?.let {
@@ -48,12 +41,12 @@ class WeatherRepository(
                 entity
 
             } catch (e: Exception) {
-                dao.getWeather(city) // fallback to DB
+                dao.getWeather(city)
             }
         }
     }
 
-    // ✅ 7-day forecast fetch
+    //  7-day forecast fetch
     suspend fun getForecast(city: String, apiKey: String): WeatherResponse? {
         return withContext(Dispatchers.IO) {
             try {

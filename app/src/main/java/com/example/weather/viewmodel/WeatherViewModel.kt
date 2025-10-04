@@ -1,6 +1,6 @@
 package com.example.weather.viewmodel
 
-//import WeatherEntity
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weather.data.local.WeatherEntity
@@ -9,12 +9,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-// Weather ke states
 sealed class WeatherState {
     object Loading : WeatherState()
     data class Success(val weather: WeatherEntity) : WeatherState()
     data class Error(val message: String) : WeatherState()
-    object Empty : WeatherState()   // <-- jab na API aur na DB me data ho
+    object Empty : WeatherState()
 }
 
 class WeatherViewModel(val repository: WeatherRepository) : ViewModel() {
