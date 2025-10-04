@@ -12,11 +12,24 @@ class WeatherRepository(
     private val dao: WeatherDao
 ) {
 
+<<<<<<< HEAD
+=======
+    // ✅ Current weather fetch (API + fallback to DB)
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
     suspend fun getWeather(city: String, apiKey: String): WeatherEntity? {
         return withContext(Dispatchers.IO) {
             try {
                 val response: WeatherResponse = api.getCurrentWeather(apiKey, city)
 
+<<<<<<< HEAD
+=======
+                // ✅ Average air quality calculation
+//                val aq = response.current.air_quality
+//                val airQualityAvg = if (aq != null) {
+//                    listOfNotNull(aq.co, aq.pm2_5, aq.pm10).average().toFloat()
+//                } else null
+
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
                 val aq = response.current.air_quality
                 val airQualityAvg = aq?.let {
                     val list = listOfNotNull(it.co, it.pm2_5, it.pm10)
@@ -41,12 +54,20 @@ class WeatherRepository(
                 entity
 
             } catch (e: Exception) {
+<<<<<<< HEAD
                 dao.getWeather(city)
+=======
+                dao.getWeather(city) // fallback to DB
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
             }
         }
     }
 
+<<<<<<< HEAD
     //  7-day forecast fetch
+=======
+    // ✅ 7-day forecast fetch
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
     suspend fun getForecast(city: String, apiKey: String): WeatherResponse? {
         return withContext(Dispatchers.IO) {
             try {

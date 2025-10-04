@@ -19,9 +19,15 @@ data class Current(
     val uv: Float,
     val vis_km: Float,
     val humidity: Int,
+<<<<<<< HEAD
     val sunrise: String? = null,
     val sunset: String? = null,
     val air_quality: AirQuality? = null
+=======
+    val sunrise: String? = null,    // new
+    val sunset: String? = null,
+    val air_quality: AirQuality? = null// new
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
 )
 
 data class AirQuality(
@@ -42,7 +48,11 @@ data class Forecast(
 data class ForecastDay(
     val date: String,
     val day: Day,
+<<<<<<< HEAD
     val astro: Astro? = null
+=======
+    val astro: Astro? = null // sunrise/sunset usually here
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
 )
 
 data class Day(

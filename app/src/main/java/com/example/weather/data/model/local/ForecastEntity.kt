@@ -7,6 +7,10 @@ import androidx.room.PrimaryKey
 data class ForecastEntity(
     @PrimaryKey(autoGenerate = false)
     val cityName: String,
+<<<<<<< HEAD
     val forecastJson: String,
+=======
+    val forecastJson: String, // JSON string of forecast data
+>>>>>>> fe93859b9e72090f216dc5eaccf480caf68f3034
     val lastUpdated: Long
 )
