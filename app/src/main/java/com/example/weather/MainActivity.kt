@@ -19,6 +19,9 @@ import com.example.weather.data.repository.WeatherRepository
 import com.example.weather.viewmodel.WeatherViewModel
 import com.example.weather.viewmodel.WeatherViewModelFactory
 
+
+//main
+
 class MainActivity : ComponentActivity() {
 
     private val apiKey = "28c08ae207584bdfb6685820250110"
