@@ -13,7 +13,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-//import com.example.weather.data.ForecastDay
 import com.example.weather.data.local.WeatherDatabase
 
 import com.example.weather.data.remote.RetrofitInstance
